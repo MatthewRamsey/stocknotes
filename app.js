@@ -11,13 +11,13 @@ mongoose.connect(config.database);
 
 // Check for connection
 mongoose.connection.on('connected', () => {
-    console.log('connected to database {}', config.database);
-}) 
+    console.log('Connected to database ' + config.database);
+}) ;
 
 // Check for error
 mongoose.connection.on('error', (err) => {
-    console.log('database error {}', err);
-}) 
+    console.log('database error ' + err);
+});
 
 // Initialize express server
 const app = express();
@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
 // Define user routes parent path
-app.use('/users', users)
+app.use('/users', users);
 
 // Index route
 app.get('/', (req, res) => {
@@ -47,5 +47,5 @@ app.get('/', (req, res) => {
 
 // Start server
 app.listen(port, () => {
-    console.log('Server started on port: {}', port);
+    console.log('Server started on port: ' + port);
 });

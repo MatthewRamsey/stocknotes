@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
 
- 
+
 // Register route
 router.post('/register', (req, res, next) => {
     let newUser = new User({
@@ -15,11 +15,17 @@ router.post('/register', (req, res, next) => {
         password: req.body.password
     });
 
-    User.addUser(newUser,  (err, user) => {
-        if(err) {
-            res.json({success: false, msg: 'Failed to register user'});
+    User.addUser(newUser, (err, user) => {
+        if (err) {
+            res.json({
+                success: false,
+                msg: 'Failed to register user'
+            });
         } else {
-            res.json({success: true, msg: 'FUser registered'});
+            res.json({
+                success: true,
+                msg: 'User registered'
+            });
         }
     });
 });
