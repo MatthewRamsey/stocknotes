@@ -4,9 +4,25 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
 const mongoose = require('mongoose');
+const config = require('./config/database');
 
+// Connect to MongoDB
+mongoose.connect(config.database);
+
+// Check for connection
+mongoose.connection.on('connected', () => {
+    console.log('connected to database {}', config.database);
+}) 
+
+// Check for error
+mongoose.connection.on('error', (err) => {
+    console.log('database error {}', err);
+}) 
+
+// Initialize express server
 const app = express();
 
+// Define user route folder
 const users =  require('./routes/users')
 
 // Port number
@@ -15,9 +31,13 @@ const port = 3000;
 // CORS middleware
 app.use(cors());
 
+// Wire up static files in public folder
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Body parser middleware
 app.use(bodyParser.json());
 
+// Define user routes parent path
 app.use('/users', users)
 
 // Index route
