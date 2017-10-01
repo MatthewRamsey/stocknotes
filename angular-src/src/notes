@@ -1,0 +1,21 @@
+
+**Installs**
+install node
+install mongo
+    -MongoDB in 30 video
+install nodemon, express, path, bodyParser, cors, passport, mongoose
+install @angular/cli@latest
+    -ng serve
+    -ng g add component compName
+
+**During development**
+Run Mongo
+Run nodemon
+
+
+**Development order**
+set up database config and connect in app.js
+set up express skeleton in app.js
+set up routes and initial data model with accessors
+set up passport and authentication
+set up angular and install components
