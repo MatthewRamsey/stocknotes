@@ -18,5 +18,8 @@
     "passport-jwt": "*"
   },
   "author": "Matthew Ramsey",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@angular/cli": "^1.4.4"
+  }
 }
