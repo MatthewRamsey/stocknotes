@@ -23,9 +23,9 @@ export class ChartComponent implements OnInit, OnDestroy {
     console.log(this.symbol);
     this.chartData = this.stockService.getStockChartData(this.symbol).subscribe(stockdata => {
       console.log(stockdata);
-      this.chartData = stockdata.TimeSeries;
+      this.chartData = stockdata;
+      console.log(this.chartData.TimeSeries);
     });
-    console.log(this.chartData);
 
     this.chart = this.AmCharts.makeChart("chartdiv", {
       type: "stock",
@@ -45,7 +45,7 @@ export class ChartComponent implements OnInit, OnDestroy {
           fromField: "volume",
           toField: "volume"
         }],
-        dataProvider: this.chartData,
+        dataProvider: this.chartData.TimeSeries,
         categoryField: "date"
       }],
       panels: [{
@@ -125,7 +125,16 @@ export class ChartComponent implements OnInit, OnDestroy {
       }
     });
     this.chart.path = "/node_modules/amcharts3/amstock3";
+  }
+
+  updateChart(symbol) {
     this.AmCharts.updateChart(this.chart, () => {
-      this.chart.dataProvider = this.chartData})
+      this.chartData = this.stockService.getStockChartData(this.symbol).subscribe(stockdata => {
+        this.chartData = stockdata
+      });
+      console.log('new data');
+      console.log(this.chartData);
+      this.chart.dataProvider = this.chartData.TimeSeries;
+    })
   }
 }
