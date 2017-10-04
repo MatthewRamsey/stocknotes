@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule, Routes} from '@angular/router';
 import {FlashMessagesModule} from 'angular2-flash-messages';
+import {AmChartsModule} from 'amcharts3-angular2';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -15,7 +16,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 
 import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
+import {StockService} from './services/stock.service';
 import {AuthGuard} from './guards/auth.guard';
+import { ChartComponent } from './components/chart/chart.component';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -33,16 +36,18 @@ const appRoutes: Routes = [
     RegisterComponent,
     HomeComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    FlashMessagesModule
+    FlashMessagesModule,
+    AmChartsModule
   ],
-  providers: [ValidateService, AuthService, AuthGuard],
+  providers: [ValidateService, AuthService, StockService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

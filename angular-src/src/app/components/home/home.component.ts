@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  symbol: String;
 
-  constructor() { }
+  constructor() { 
+    this.symbol = "AAPL";
+  }
 
   ngOnInit() {
   }

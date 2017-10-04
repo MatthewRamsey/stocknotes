@@ -9,7 +9,8 @@
       "outDir": "../public",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "../node_modules/amstock3/images"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,9 +20,15 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/amstock3/amcharts/plugins/export/export.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/amstock3/amcharts/amcharts.js",
+        "../node_modules/amstock3/amcharts/amstock.js",
+        "../node_modules/amstock3/amcharts/themes/black.js",
+        "../node_modules/amstock3/amcharts/plugins/export/export.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

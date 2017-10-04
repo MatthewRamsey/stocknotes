@@ -21,6 +21,8 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "amcharts3-angular2": "^1.2.1",
+    "amstock3": "github:amcharts/amstock3",
     "angular2-flash-messages": "^1.0.8",
     "angular2-jwt": "^0.2.3",
     "core-js": "^2.4.1",
