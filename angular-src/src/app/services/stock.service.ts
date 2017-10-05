@@ -13,6 +13,6 @@ export class StockService {
     headers.append('Content-Type', 'application/json');
     return this.http.get('https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='
     + symbol + '&interval=1min&apikey=LLJJF4CASZ2LFSJC', {headers: headers})
-    .map(res => {res.json(); console.log(res);});
+    .map(res => res.json());
   }
 }

@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
     console.log(this.symbol);
     this.chartData = this.stockService.getStockChartData(this.symbol).subscribe(stockdata => {
       this.chartData = stockdata;
-      console.log(this.chartData);
+      console.log(stockdata.TimeSeries);
     });
   }
 }
