@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { StockService } from '../../services/stock.service';
 
 @Component({
   selector: 'app-home',
@@ -7,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   symbol: String;
+  chartData: any;
 
-  constructor() { 
+  constructor(private stockService: StockService) { 
     this.symbol = "AAPL";
   }
 
   ngOnInit() {
+    console.log(this.symbol);
+    this.chartData = this.stockService.getStockChartData(this.symbol).subscribe(stockdata => {
+      this.chartData = stockdata;
+      console.log(this.chartData);
+    });
   }
-
 }

@@ -1,4 +1,10 @@
-<app-chart [symbol]="symbol"></app-chart>
+<form class="form text-center" role="search">
+  <div class="form-inline">
+    <input type="text" class="form-control" placeholder="Search" name="symbol" [(ngModel)]="symbol">
+    <button type="submit" class="btn btn-default" ><i class="glyphicon glyphicon-search"></i></button>
+  </div>
+</form>
+<app-chart [symbol]="symbol" [chartData]="chartData"></app-chart>
 <div class="row">
   <div class="col-md-3">
     <h3>Private Notes</h3>

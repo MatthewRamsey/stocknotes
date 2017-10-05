@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, Input, EventEmitter } from '@angular/core';
 import { AmChartsService } from 'amcharts3-angular2';
 import { StockService } from '../../services/stock.service';
 
@@ -9,29 +9,25 @@ import { StockService } from '../../services/stock.service';
 })
 
 export class ChartComponent implements OnInit, OnDestroy {
-  ngOnDestroy(): void {
-    this.AmCharts.destroyChart(this.chart);
-  }
+
   @Input() symbol: String;
-  chartData: any;
+  @Input() chartData: any;
+
   private chart: any;
 
   constructor(private stockService: StockService,
     private AmCharts: AmChartsService) { }
 
   ngOnInit() {
-    console.log(this.symbol);
-    this.chartData = this.stockService.getStockChartData(this.symbol).subscribe(stockdata => {
-      console.log(stockdata);
-      this.chartData = stockdata;
-      console.log(this.chartData.TimeSeries);
-    });
+   }
 
+  ngAfterViewInit() {
+    console.log("create chart")
     this.chart = this.AmCharts.makeChart("chartdiv", {
-      type: "stock",
+      type: "serial",
       theme: "black",
       responsive: {
-        "enabled": true
+        "enabled": false
       },
       categoryAxesSettings: {
         minPeriod: "mm"
@@ -42,10 +38,22 @@ export class ChartComponent implements OnInit, OnDestroy {
           fromField: "value",
           toField: "value"
         }, {
+          fromField: "openField",
+          toField: "open"
+        }, {
+          fromField: "closeField",
+          toField: "close"
+        }, {
+          fromField: "highField",
+          toField: "high"
+        }, {
+          fromField: "lowField",
+          toField: "low"
+        }, {
           fromField: "volume",
           toField: "volume"
         }],
-        dataProvider: this.chartData.TimeSeries,
+        dataProvider: this.chartData,
         categoryField: "date"
       }],
       panels: [{
@@ -59,7 +67,7 @@ export class ChartComponent implements OnInit, OnDestroy {
         stockGraphs: [{
           id: "g1",
           valueField: "value",
-          type: "smoothedLine",
+          type: "candlestick",
           lineThickness: 2,
           bullet: "round"
         }],
@@ -119,15 +127,21 @@ export class ChartComponent implements OnInit, OnDestroy {
           period: "MAX",
           label: "MAX"
         }]
-      },
-      panelsSettings: {
-        usePrefixes: true
+        ,
+        panelsSettings: {
+          usePrefixes: true
+        }
       }
     });
     this.chart.path = "/node_modules/amcharts3/amstock3";
+    this.chart.pathToImages = "/node_modules/amcharts3/images";
   }
 
-  updateChart(symbol) {
+  ngOnDestroy(): void {
+    this.AmCharts.destroyChart(this.chart);
+  }
+
+  updateChart() {
     this.AmCharts.updateChart(this.chart, () => {
       this.chartData = this.stockService.getStockChartData(this.symbol).subscribe(stockdata => {
         this.chartData = stockdata
