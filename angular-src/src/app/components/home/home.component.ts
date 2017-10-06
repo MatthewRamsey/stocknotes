@@ -16,9 +16,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.symbol);
-    this.chartData = this.stockService.getStockChartData(this.symbol).subscribe(stockdata => {
-      this.chartData = stockdata;
-      console.log(stockdata.TimeSeries);
-    });
+    this.chartData = this.stockService.getStockChartData(this.symbol).subscribe(
+      stockdata => this.chartData = stockdata,
+      error => console.log('Error in data acquisition'),
+      () => console.log('Data: '+ this.chartData));
   }
 }
