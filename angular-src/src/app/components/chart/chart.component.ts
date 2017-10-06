@@ -16,13 +16,13 @@ export class ChartComponent implements OnInit, OnDestroy {
   private chart: any;
 
   constructor(private stockService: StockService,
-    private AmCharts: AmChartsService) { }
+    private AmCharts: AmChartsService) {
+
+    this.updateChart = this.updateChart.bind(this);
+  }
 
   ngOnInit() {
-   }
-
-  ngAfterViewInit() {
-    console.log("create chart")
+    this.stockService.getStockChartData(this.symbol).subscribe(this.updateChart);
     this.chart = this.AmCharts.makeChart("chartdiv", {
       type: "serial",
       theme: "black",
@@ -53,7 +53,7 @@ export class ChartComponent implements OnInit, OnDestroy {
           fromField: "volume",
           toField: "volume"
         }],
-        dataProvider: this.chartData,
+        dataProvider: [],
         categoryField: "date"
       }],
       panels: [{
@@ -76,20 +76,20 @@ export class ChartComponent implements OnInit, OnDestroy {
           markerType: "none"
         }
       },
-      {
-        title: "Volume",
-        percentHeight: 30,
-        stockGraphs: [{
-          valueField: "volume",
-          type: "column",
-          cornerRadiusTop: 2,
-          fillAlphas: 1
-        }],
-        stockLegend: {
-          valueTextRegular: " ",
-          markerType: "none"
+        {
+          title: "Volume",
+          percentHeight: 30,
+          stockGraphs: [{
+            valueField: "volume",
+            type: "column",
+            cornerRadiusTop: 2,
+            fillAlphas: 1
+          }],
+          stockLegend: {
+            valueTextRegular: " ",
+            markerType: "none"
+          }
         }
-      }
       ],
       chartScrollbarSettings: {
         graph: "g1",
@@ -133,6 +133,9 @@ export class ChartComponent implements OnInit, OnDestroy {
         }
       }
     });
+  }
+
+  ngAfterViewInit() {
     this.chart.path = "/node_modules/amcharts3/amstock3";
     this.chart.pathToImages = "/node_modules/amcharts3/images";
   }
@@ -141,14 +144,10 @@ export class ChartComponent implements OnInit, OnDestroy {
     this.AmCharts.destroyChart(this.chart);
   }
 
-  updateChart() {
-    this.AmCharts.updateChart(this.chart, () => {
-      this.chartData = this.stockService.getStockChartData(this.symbol).subscribe(stockdata => {
-        this.chartData = stockdata
-      });
-      console.log('new data');
-      console.log(this.chartData);
-      this.chart.dataProvider = this.chartData.TimeSeries;
-    })
+  updateChart(chartData) {
+    const series = chartData['Time Series (1min)'];
+    const transformer = (series) => series;
+    this.chart.dataProvider = transformer(series);
+    this.chart.validateData();
   }
 }
