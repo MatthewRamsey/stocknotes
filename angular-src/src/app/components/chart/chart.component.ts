@@ -11,14 +11,11 @@ import { StockService } from '../../services/stock.service';
 export class ChartComponent implements OnInit, OnDestroy {
 
   @Input() symbol: String;
-  @Input() chartData: any;
 
   private chart: any;
 
   constructor(private stockService: StockService,
     private AmCharts: AmChartsService) {
-
-    this.updateChart = this.updateChart.bind(this);
   }
 
   ngOnInit() {
@@ -76,20 +73,20 @@ export class ChartComponent implements OnInit, OnDestroy {
           markerType: "none"
         }
       },
-        {
-          title: "Volume",
-          percentHeight: 30,
-          stockGraphs: [{
-            valueField: "volume",
-            type: "column",
-            cornerRadiusTop: 2,
-            fillAlphas: 1
-          }],
-          stockLegend: {
-            valueTextRegular: " ",
-            markerType: "none"
-          }
+      {
+        title: "Volume",
+        percentHeight: 30,
+        stockGraphs: [{
+          valueField: "volume",
+          type: "column",
+          cornerRadiusTop: 2,
+          fillAlphas: 1
+        }],
+        stockLegend: {
+          valueTextRegular: " ",
+          markerType: "none"
         }
+      }
       ],
       chartScrollbarSettings: {
         graph: "g1",
@@ -145,6 +142,7 @@ export class ChartComponent implements OnInit, OnDestroy {
   }
 
   updateChart(chartData) {
+    console.log(chartData);
     const series = chartData['Time Series (1min)'];
     const transformer = (series) => series;
     this.chart.dataProvider = transformer(series);

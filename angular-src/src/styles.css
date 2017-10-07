@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.private-component {
+
+    border: #375a7f solid 1px;
+    border-radius: 10px;
+    text-align: center;
+    height: 400px;
+}

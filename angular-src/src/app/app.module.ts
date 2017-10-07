@@ -19,6 +19,10 @@ import {AuthService} from './services/auth.service';
 import {StockService} from './services/stock.service';
 import {AuthGuard} from './guards/auth.guard';
 import { ChartComponent } from './components/chart/chart.component';
+import { PrivatenotesComponent } from './privatenotes/privatenotes.component';
+import { PublicnotesComponent } from './publicnotes/publicnotes.component';
+import { NewsComponent } from './news/news.component';
+import { TwitterComponent } from './twitter/twitter.component';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -37,7 +41,11 @@ const appRoutes: Routes = [
     HomeComponent,
     DashboardComponent,
     ProfileComponent,
-    ChartComponent
+    ChartComponent,
+    PrivatenotesComponent,
+    PublicnotesComponent,
+    NewsComponent,
+    TwitterComponent
   ],
   imports: [
     BrowserModule,

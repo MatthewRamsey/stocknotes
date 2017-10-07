@@ -4,22 +4,10 @@
     <button type="submit" class="btn btn-default" ><i class="glyphicon glyphicon-search"></i></button>
   </div>
 </form>
-<app-chart [symbol]="symbol" [chartData]="chartData"></app-chart>
+<app-chart [symbol]="symbol"></app-chart>
 <div class="row">
-  <div class="col-md-3">
-    <h3>Private Notes</h3>
-    <p>Test Notes</p>
-  </div>
-  <div class="col-md-3">
-    <h3>Public Notes</h3>
-    <p>Test Notes</p>
-  </div>
-  <div class="col-md-3">
-    <h3>News</h3>
-    <p>Articles</p>
-  </div>
-  <div class="col-md-3">
-    <h3>Twitter</h3>
-    <p>Tweets</p>
-  </div>
+  <app-privatenotes></app-privatenotes>
+  <app-publicnotes></app-publicnotes>
+  <app-news></app-news>
+  <app-twitter></app-twitter>
 </div>

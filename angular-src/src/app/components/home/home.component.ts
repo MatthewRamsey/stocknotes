@@ -8,14 +8,11 @@ import { StockService } from '../../services/stock.service';
 })
 export class HomeComponent implements OnInit {
   symbol: String;
-  chartData: any;
 
   constructor(private stockService: StockService) {
     this.symbol = "AAPL";
   }
 
   ngOnInit() {
-    console.log(this.symbol);
-
   }
 }
