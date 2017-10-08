@@ -1,8 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 .private-component {
-
     border: #375a7f solid 1px;
     border-radius: 10px;
     text-align: center;
+    margin: 1px;
     height: 400px;
+}
+
+
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+}
+
+.nav-tabs, .nav-pills {
+    text-align:center;
+    padding-top: 1px;
 }

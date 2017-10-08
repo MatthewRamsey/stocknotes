@@ -1,163 +1,105 @@
-import { Component, OnInit, AfterViewInit, OnDestroy, Input, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { AmChartsService } from 'amcharts3-angular2';
-import { StockService } from '../../services/stock.service';
+import {AmChart} from 'amstock3';
 
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.css']
 })
+export class ChartComponent {
+  private timer: any;
+  private chart: AmChart;
 
-export class ChartComponent implements OnInit, OnDestroy {
+  constructor(private AmCharts: AmChartsService) {}
 
-  @Input() symbol: String;
+  makeRandomDataProvider() {
+    var dataProvider = [];
 
-  private chart: any;
-  private chartData = [
-    {date: new Date(2011, 5, 1, 0, 0, 0, 0), val:10},
-    {date: new Date(2011, 5, 2, 0, 0, 0, 0), val:11},
-    {date: new Date(2011, 5, 3, 0, 0, 0, 0), val:12},
-    {date: new Date(2011, 5, 4, 0, 0, 0, 0), val:11},
-    {date: new Date(2011, 5, 5, 0, 0, 0, 0), val:10},
-    {date: new Date(2011, 5, 6, 0, 0, 0, 0), val:11},
-    {date: new Date(2011, 5, 7, 0, 0, 0, 0), val:13},
-    {date: new Date(2011, 5, 8, 0, 0, 0, 0), val:14},
-    {date: new Date(2011, 5, 9, 0, 0, 0, 0), val:17},
-    {date: new Date(2011, 5, 10, 0, 0, 0, 0), val:13}
-];
+    // Generate random data
+    for (var year = 1950; year <= 2005; ++year) {
+      dataProvider.push({
+        year: "" + year,
+        value: Math.floor(Math.random() * 100) - 50
+      });
+    }
 
-  constructor(private stockService: StockService,
-    private AmCharts: AmChartsService) {
-  }
-
-  ngOnInit() {
-    //this.stockService.getStockChartData(this.symbol).subscribe(this.updateChart);
-    this.chart = this.AmCharts.makeChart("chartdiv", {
-      type: "serial",
-      theme: "black",
-      responsive: {
-        "enabled": false
-      },
-      categoryAxesSettings: {
-        minPeriod: "mm"
-      },
-      dataSets: [{
-        color: "#b0de09",
-        fieldMappings: [{
-          fromField: "value",
-          toField: "value"
-        }, {
-          fromField: "openField",
-          toField: "open"
-        }, {
-          fromField: "closeField",
-          toField: "close"
-        }, {
-          fromField: "highField",
-          toField: "high"
-        }, {
-          fromField: "lowField",
-          toField: "low"
-        }, {
-          fromField: "volume",
-          toField: "volume"
-        }],
-        dataProvider: this.chartData,
-        categoryField: "date"
-      }],
-      panels: [{
-        showCategoryAxis: false,
-        title: "Value",
-        percentHeight: 70,
-        valueAxes: [{
-          id: "v1"
-        }
-        ],
-        stockGraphs: [{
-          id: "g1",
-          valueField: "value",
-          type: "candlestick",
-          lineThickness: 2,
-          bullet: "round"
-        }],
-        stockLegend: {
-          valueTextRegular: " ",
-          markerType: "none"
-        }
-      },
-      {
-        title: "Volume",
-        percentHeight: 30,
-        stockGraphs: [{
-          valueField: "volume",
-          type: "column",
-          cornerRadiusTop: 2,
-          fillAlphas: 1
-        }],
-        stockLegend: {
-          valueTextRegular: " ",
-          markerType: "none"
-        }
-      }
-      ],
-      chartScrollbarSettings: {
-        graph: "g1",
-        usePeriod: "10mm",
-        position: "top",
-        updateOnReleaseOnly: false
-      },
-      chartCursorSettings: {
-        valueBalloonsEnabled: true,
-        valueLineBalloonEnabled: true,
-        valueLineEnabled: true
-      },
-      periodSelector: {
-        position: "bottom",
-        dateFormat: "YYYY-MM-DD HH:NN",
-        inputFieldWidth: 150,
-        periods: [{
-          period: "hh",
-          count: 1,
-          label: "1 hour",
-          selected: true
-        }, {
-          period: "hh",
-          count: 2,
-          label: "2 hours"
-        }, {
-          period: "hh",
-          count: 5,
-          label: "5 hour"
-        }, {
-          period: "hh",
-          count: 12,
-          label: "12 hours"
-        }, {
-          period: "MAX",
-          label: "MAX"
-        }]
-        ,
-        panelsSettings: {
-          usePrefixes: true
-        }
-      }
-    });
+    return dataProvider;
   }
 
   ngAfterViewInit() {
-    this.chart.path = "/node_modules/amcharts3/amstock3";
-    this.chart.pathToImages = "/node_modules/amcharts3/images";
+    this.chart = this.AmCharts.makeChart("chartdiv", {
+      "type": "serial",
+      "theme": "black",
+      "marginTop":0,
+      "marginRight": 80,
+      "dataProvider": this.makeRandomDataProvider(),
+      "valueAxes": [{
+        "axisAlpha": 0,
+        "position": "left"
+      }],
+      "graphs": [{
+        "id":"g1",
+        "balloonText": "[[category]]<br><b><span style='font-size:14px;'>[[value]]</span></b>",
+        "bullet": "round",
+        "bulletSize": 8,
+        "lineColor": "#d1655d",
+        "lineThickness": 2,
+        "negativeLineColor": "#637bb6",
+        "type": "smoothedLine",
+        "valueField": "value"
+      }],
+      "chartScrollbar": {
+        "graph":"g1",
+        "gridAlpha":0,
+        "color":"#888888",
+        "scrollbarHeight":55,
+        "backgroundAlpha":0,
+        "selectedBackgroundAlpha":0.1,
+        "selectedBackgroundColor":"#888888",
+        "graphFillAlpha":0,
+        "autoGridCount":true,
+        "selectedGraphFillAlpha":0,
+        "graphLineAlpha":0.2,
+        "graphLineColor":"#c2c2c2",
+        "selectedGraphLineColor":"#888888",
+        "selectedGraphLineAlpha":1
+      },
+      "chartCursor": {
+        "categoryBalloonDateFormat": "YYYY",
+        "cursorAlpha": 0,
+        "valueLineEnabled":true,
+        "valueLineBalloonEnabled":true,
+        "valueLineAlpha":0.5,
+        "fullWidth":true
+      },
+      "dataDateFormat": "YYYY",
+      "categoryField": "year",
+      "categoryAxis": {
+        "minPeriod": "YYYY",
+        "parseDates": true,
+        "minorGridAlpha": 0.1,
+        "minorGridEnabled": true
+      },
+      "export": {
+        "enabled": true
+      }
+    });
+
+    // Updates the chart every 3 seconds
+    this.timer = setInterval(() => {
+      // This must be called when making any changes to the chart
+      this.AmCharts.updateChart(this.chart, () => {
+        this.chart.dataProvider = this.makeRandomDataProvider();
+      });
+    }, 3000);
   }
 
-  ngOnDestroy(): void {
-    this.AmCharts.destroyChart(this.chart);
-  }
+  ngOnDestroy() {
+    clearInterval(this.timer);
 
-  updateChart(chartData) {
-    console.log(chartData);
-    const series = chartData['Time Series (1min)'];
-    const transformer = (series) => series;
-    this.chart.dataProvider = transformer(series);
-    this.chart.validateData();
+    if (this.chart) {
+      this.AmCharts.destroyChart(this.chart);
+    }
   }
 }
