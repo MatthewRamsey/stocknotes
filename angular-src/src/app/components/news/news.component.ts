@@ -13,10 +13,10 @@ export class NewsComponent implements OnInit {
 
   constructor(private stockService: StockService) {
 
-    this.stockService.getStockNews(this.symbol).subscribe(data => {
-      this.newsData = data;
-      console.log(this.newsData);
-    });
+    // this.stockService.getStockNews(this.symbol).subscribe(data => {
+    //   this.newsData = data;
+      //console.log(this.newsData);
+    //});
    }
 
   ngOnInit() {

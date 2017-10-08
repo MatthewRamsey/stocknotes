@@ -10,12 +10,12 @@ export class TwitterComponent implements OnInit {
   @Input() symbol: String;
   private twitterData: any;
 
-  constructor(private stockService: StockService) {
-    this.stockService.getTwitterResults(this.symbol).subscribe(data => {
-      this.twitterData = data;
-      console.log(this.twitterData);
-    });
-   }
+  // constructor(private stockService: StockService) {
+  //   this.stockService.getTwitterResults(this.symbol).subscribe(data => {
+  //     this.twitterData = data;
+  //     //console.log(this.twitterData);
+  //   });
+   //}
 
   ngOnInit() {
   }

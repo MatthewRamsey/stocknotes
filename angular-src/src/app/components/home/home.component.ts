@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { StockService } from '../../services/stock.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +8,7 @@ import { StockService } from '../../services/stock.service';
 export class HomeComponent implements OnInit {
   symbol: String;
 
-  constructor(private stockService: StockService) {
+  constructor() {
     this.symbol = "AAPL";
   }
 

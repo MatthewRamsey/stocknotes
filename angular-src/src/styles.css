@@ -34,6 +34,7 @@ ul {
 }
 .listItem {
   border: #375a7f solid 1px;
+  background: black;
   border-radius: 10px;
   text-align: center;
   margin: 3px;

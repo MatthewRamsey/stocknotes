@@ -32,7 +32,6 @@ export class PrivatenotesComponent implements OnInit {
       detail: "Apple stock will rise immensely with the super cool iPhone X"
     }]);
 
-    console.log(data);
     return data;
   }
 }
