@@ -17,7 +17,7 @@ export class ChartComponent {
 
   makeRandomDataProvider() {
     var dataProvider;
-    
+
     return this.stockService.getStockChartData(this.symbol).subscribe(data => {
       var result = [];
       var count = 0;
@@ -30,7 +30,7 @@ export class ChartComponent {
           highField = data['Time Series (1min)'][key]['2. high'],
           lowField = data['Time Series (1min)'][key]['3. low'],
           volume = data['Time Series (1min)'][key]['5. volume'];
-
+        
         result.push({
           "date": date,
           "open": openField,
@@ -41,7 +41,9 @@ export class ChartComponent {
         });
         count++;
       }
-      dataProvider = result;
+      debugger
+      console.log(result);
+      return result;
     });
   }
 
@@ -69,58 +71,59 @@ export class ChartComponent {
           fromField: "volume",
           toField: "volume"
         }],
-        "dataLoader": this.makeRandomDataProvider()}],
-        "valueAxes": [{
-          "axisAlpha": 0,
-          "position": "left"
-        }],
-        "graphs": [{
-          "id": "g1",
-          "balloonText": "[[category]]<br><b><span style='font-size:14px;'>[[value]]</span></b>",
-          "bullet": "round",
-          "bulletSize": 8,
-          "lineColor": "#d1655d",
-          "lineThickness": 2,
-          "negativeLineColor": "#637bb6",
-          "type": "candlestick",
-          "valueField": "value"
-        }],
-        "chartScrollbar": {
-          "graph": "g1",
-          "gridAlpha": 0,
-          "color": "#888888",
-          "scrollbarHeight": 55,
-          "backgroundAlpha": 0,
-          "selectedBackgroundAlpha": 0.1,
-          "selectedBackgroundColor": "#888888",
-          "graphFillAlpha": 0,
-          "autoGridCount": true,
-          "selectedGraphFillAlpha": 0,
-          "graphLineAlpha": 0.2,
-          "graphLineColor": "#c2c2c2",
-          "selectedGraphLineColor": "#888888",
-          "selectedGraphLineAlpha": 1
-        },
-        "chartCursor": {
-          "categoryBalloonDateFormat": "YYYY",
-          "cursorAlpha": 0,
-          "valueLineEnabled": true,
-          "valueLineBalloonEnabled": true,
-          "valueLineAlpha": 0.5,
-          "fullWidth": true
-        },
-        "dataDateFormat": "YYYY-MM-DD",
-        "categoryField": "year",
-        "categoryAxis": {
-          "minPeriod": "SS",
-          "parseDates": true,
-          "minorGridAlpha": 0.1,
-          "minorGridEnabled": true
-        },
-        "export": {
-          "enabled": true
-        }
-      });
+        "dataLoader": this.makeRandomDataProvider()
+      }],
+      "valueAxes": [{
+        "axisAlpha": 0,
+        "position": "left"
+      }],
+      "graphs": [{
+        "id": "g1",
+        "balloonText": "[[category]]<br><b><span style='font-size:14px;'>[[value]]</span></b>",
+        "bullet": "round",
+        "bulletSize": 8,
+        "lineColor": "#d1655d",
+        "lineThickness": 2,
+        "negativeLineColor": "#637bb6",
+        "type": "candlestick",
+        "valueField": "value"
+      }],
+      "chartScrollbar": {
+        "graph": "g1",
+        "gridAlpha": 0,
+        "color": "#888888",
+        "scrollbarHeight": 55,
+        "backgroundAlpha": 0,
+        "selectedBackgroundAlpha": 0.1,
+        "selectedBackgroundColor": "#888888",
+        "graphFillAlpha": 0,
+        "autoGridCount": true,
+        "selectedGraphFillAlpha": 0,
+        "graphLineAlpha": 0.2,
+        "graphLineColor": "#c2c2c2",
+        "selectedGraphLineColor": "#888888",
+        "selectedGraphLineAlpha": 1
+      },
+      "chartCursor": {
+        "categoryBalloonDateFormat": "YYYY",
+        "cursorAlpha": 0,
+        "valueLineEnabled": true,
+        "valueLineBalloonEnabled": true,
+        "valueLineAlpha": 0.5,
+        "fullWidth": true
+      },
+      "dataDateFormat": "YYYY-MM-DD",
+      "categoryField": "year",
+      "categoryAxis": {
+        "minPeriod": "SS",
+        "parseDates": true,
+        "minorGridAlpha": 0.1,
+        "minorGridEnabled": true
+      },
+      "export": {
+        "enabled": true
+      }
+    });
 
     // Updates the chart every 3 seconds
     this.timer = setInterval(() => {
@@ -129,7 +132,7 @@ export class ChartComponent {
         this.chart.dataLoader = this.makeRandomDataProvider();
       });
     }, 3000);
-    
+
   }
 
   ngOnDestroy() {
