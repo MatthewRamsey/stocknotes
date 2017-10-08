@@ -12,13 +12,12 @@ export class ChartComponent {
   @Input() symbol: String;
   private timer: any;
   private chart: AmChart;
-
+  private dataProvider: any;
   constructor(private AmCharts: AmChartsService, private stockService: StockService) { }
 
   makeRandomDataProvider() {
-    var dataProvider;
 
-    return this.stockService.getStockChartData(this.symbol).subscribe(data => {
+    this.stockService.getStockChartData(this.symbol).subscribe(data => {
       var result = [];
       var count = 0;
 
@@ -30,7 +29,7 @@ export class ChartComponent {
           highField = data['Time Series (1min)'][key]['2. high'],
           lowField = data['Time Series (1min)'][key]['3. low'],
           volume = data['Time Series (1min)'][key]['5. volume'];
-        
+
         result.push({
           "date": date,
           "open": openField,
@@ -41,13 +40,12 @@ export class ChartComponent {
         });
         count++;
       }
-      debugger
-      console.log(result);
-      return result;
+        this.dataProvider = result;
     });
   }
 
   ngAfterViewInit() {
+    this.makeRandomDataProvider()
     this.chart = this.AmCharts.makeChart("chartdiv", {
       "type": "serial",
       "theme": "black",
@@ -71,7 +69,7 @@ export class ChartComponent {
           fromField: "volume",
           toField: "volume"
         }],
-        "dataLoader": this.makeRandomDataProvider()
+        "dataProvider": this.dataProvider
       }],
       "valueAxes": [{
         "axisAlpha": 0,
@@ -79,14 +77,20 @@ export class ChartComponent {
       }],
       "graphs": [{
         "id": "g1",
-        "balloonText": "[[category]]<br><b><span style='font-size:14px;'>[[value]]</span></b>",
-        "bullet": "round",
-        "bulletSize": 8,
-        "lineColor": "#d1655d",
-        "lineThickness": 2,
-        "negativeLineColor": "#637bb6",
+        "balloonText": "Open:<b>[[open]]</b><br>Low:<b>[[low]]</b><br>High:<b>[[high]]</b><br>Close:<b>[[close]]</b><br>",
+        "closeField": "close",
+        "fillColors": "#7f8da9",
+        "highField": "high",
+        "lineColor": "#7f8da9",
+        "lineAlpha": 1,
+        "lowField": "low",
+        "fillAlphas": 0.9,
+        "negativeFillColors": "#db4c3c",
+        "negativeLineColor": "#db4c3c",
+        "openField": "open",
+        "title": "Price:",
         "type": "candlestick",
-        "valueField": "value"
+        "valueField": "close"
       }],
       "chartScrollbar": {
         "graph": "g1",
@@ -113,10 +117,10 @@ export class ChartComponent {
         "fullWidth": true
       },
       "dataDateFormat": "YYYY-MM-DD",
-      "categoryField": "year",
+      "categoryField": "date",
       "categoryAxis": {
         "minPeriod": "SS",
-        "parseDates": true,
+        "parseDates": false,
         "minorGridAlpha": 0.1,
         "minorGridEnabled": true
       },
@@ -129,7 +133,9 @@ export class ChartComponent {
     this.timer = setInterval(() => {
       // This must be called when making any changes to the chart
       this.AmCharts.updateChart(this.chart, () => {
-        this.chart.dataLoader = this.makeRandomDataProvider();
+        this.makeRandomDataProvider()
+        this.dataProvider = 
+        this.chart.dataProvider = this.dataProvider;
       });
     }, 3000);
 
