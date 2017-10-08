@@ -1,4 +1,24 @@
-<div class="private-component col-md-3">
-  <h3>Public Notes</h3>
-  <p>Notes</p>
-</div>
+<div class="col-md-4">
+    <div class="private-component">
+      <ul class="nav nav-pills">
+        <li class="active">
+          <a href="#">
+            <h4>Public Notes</h4>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <h4>Private Notes</h4>
+          </a>
+        </li>
+      </ul>
+      <div>test</div>
+      <ul>
+        <li *ngFor="let note of data">
+          <div>{{note.title}}<span>{{note.date}}</span></div>
+          <div>{{note.details}}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

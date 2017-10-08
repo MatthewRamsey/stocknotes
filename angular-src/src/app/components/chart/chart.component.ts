@@ -23,7 +23,6 @@ export class ChartComponent {
         value: Math.floor(Math.random() * 100) - 50
       });
     }
-
     return dataProvider;
   }
 
