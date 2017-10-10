@@ -10,42 +10,15 @@ import { StockService } from '../../services/stock.service';
 })
 export class ChartComponent {
   @Input() symbol: String;
-  private timer: any;
   private chart: AmChart;
   private dataProvider: any;
-  constructor(private AmCharts: AmChartsService, private stockService: StockService) { }
 
-  makeRandomDataProvider() {
-
-    this.stockService.getStockChartData(this.symbol).subscribe(data => {
-      var result = [];
-      var count = 0;
-
-      for (var key in data['Time Series (1min)']) {
-
-        var date = key,
-          openField = data['Time Series (1min)'][key]['1. open'],
-          closeField = data['Time Series (1min)'][key]['4. close'],
-          highField = data['Time Series (1min)'][key]['2. high'],
-          lowField = data['Time Series (1min)'][key]['3. low'],
-          volume = data['Time Series (1min)'][key]['5. volume'];
-
-        result.push({
-          "date": date,
-          "open": openField,
-          "close": closeField,
-          "high": highField,
-          "low": lowField,
-          "volume": volume
-        });
-        count++;
-      }
-        this.dataProvider = result.reverse();
-    });
+  constructor(private AmCharts: AmChartsService, private stockService: StockService) {
   }
 
   ngAfterViewInit() {
-    this.makeRandomDataProvider()
+    console.log('about to make provider and chart');
+    this.makeStockDataProvider();
     this.chart = this.AmCharts.makeChart("chartdiv", {
       "type": "serial",
       "theme": "black",
@@ -126,24 +99,50 @@ export class ChartComponent {
         "minorGridEnabled": true
       }
     });
-
-    // Updates the chart every 3 seconds
-    this.timer = setInterval(() => {
-      // This must be called when making any changes to the chart
-      this.AmCharts.updateChart(this.chart, () => {
-        this.makeRandomDataProvider()
-        this.dataProvider = 
-        this.chart.dataProvider = this.dataProvider;
-      });
-    }, 10000);
-
+    this.updateNewChart();
   }
 
   ngOnDestroy() {
-    clearInterval(this.timer);
-
     if (this.chart) {
       this.AmCharts.destroyChart(this.chart);
     }
+  }
+
+  makeStockDataProvider() {
+    this.stockService.getStockChartData(this.symbol).subscribe(data => {
+      console.log('making data provider');
+      var result = [];
+      var count = 0;
+
+      for (var key in data['Time Series (1min)']) {
+
+        var date = key,
+          openField = data['Time Series (1min)'][key]['1. open'],
+          closeField = data['Time Series (1min)'][key]['4. close'],
+          highField = data['Time Series (1min)'][key]['2. high'],
+          lowField = data['Time Series (1min)'][key]['3. low'],
+          volume = data['Time Series (1min)'][key]['5. volume'];
+
+        result.push({
+          "date": date,
+          "open": openField,
+          "close": closeField,
+          "high": highField,
+          "low": lowField,
+          "volume": volume
+        });
+        count++;
+      }
+      this.dataProvider = result.reverse();
+    });
+  }
+
+  updateNewChart() {
+    console.log('updating chart');
+    this.AmCharts.updateChart(this.chart, () => {
+      this.makeStockDataProvider()
+      this.dataProvider =
+        this.chart.dataProvider = this.dataProvider;
+    });
   }
 }
