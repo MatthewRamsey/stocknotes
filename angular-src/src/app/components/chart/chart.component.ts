@@ -40,7 +40,7 @@ export class ChartComponent {
         });
         count++;
       }
-        this.dataProvider = result;
+        this.dataProvider = result.reverse();
     });
   }
 
@@ -119,13 +119,11 @@ export class ChartComponent {
       "dataDateFormat": "YYYY-MM-DD",
       "categoryField": "date",
       "categoryAxis": {
+        "labelRotation": 45,
         "minPeriod": "SS",
         "parseDates": false,
         "minorGridAlpha": 0.1,
         "minorGridEnabled": true
-      },
-      "export": {
-        "enabled": true
       }
     });
 
@@ -137,7 +135,7 @@ export class ChartComponent {
         this.dataProvider = 
         this.chart.dataProvider = this.dataProvider;
       });
-    }, 3000);
+    }, 10000);
 
   }
 
