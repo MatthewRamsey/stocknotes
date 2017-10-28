@@ -33,8 +33,8 @@ ul {
     padding-right: 10px;
 }
 .listItem {
-  border: #375a7f solid 1px;
-  background: black;
+  border: black solid 1px;
+  background: #375a7f;
   border-radius: 10px;
   text-align: center;
   margin: 3px;
@@ -51,4 +51,8 @@ ul {
 .dateRight {
   float: right;
   padding-right: 10px;
+}
+
+.detail {
+  font-size: 11px;
 }
