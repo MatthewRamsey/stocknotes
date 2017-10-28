@@ -13,11 +13,11 @@ export class ChartComponent {
   private chart: AmChart;
   private dataProvider: any;
 
-  constructor(private AmCharts: AmChartsService, private stockService: StockService) {
+  constructor(private AmCharts: AmChartsService, 
+    private stockService: StockService) {
   }
 
   ngAfterViewInit() {
-    console.log('about to make provider and chart');
     this.makeStockDataProvider();
   }
 
@@ -30,11 +30,7 @@ export class ChartComponent {
   makeStockDataProvider() {
     this.stockService.getStockChartData(this.symbol)
       .finally(()=>{
-      console.log("FINALLY");
-      console.log(this.dataProvider);
-      console.log(this.chart);
       if(typeof this.chart == 'undefined') {
-        console.log('undefined');
         this.chart = this.AmCharts.makeChart("chartdiv", {
         "type": "serial",
         "theme": "black",
@@ -116,10 +112,10 @@ export class ChartComponent {
       });
         this.AmCharts.updateChart(this.chart, () => {this.chart.dataProvider = this.dataProvider});}
     else{
-        console.log('defined');
-        this.AmCharts.updateChart(this.chart, () => {this.chart.dataProvider = this.dataProvider});}})
+        this.AmCharts.updateChart(this.chart, () => {this.chart.dataProvider = this.dataProvider});
+      }
+    })
       .subscribe(data => {
-      console.log('making data provider');
       var result = [];
       var count = 0;
 
@@ -143,11 +139,10 @@ export class ChartComponent {
         count++;
       }
       this.dataProvider = result.reverse();
-    });
+      });
   }
 
   updateNewChart() {
-    console.log('updating chart');
     this.makeStockDataProvider();
   }
 }

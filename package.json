@@ -11,15 +11,15 @@
     "bcryptjs": "*",
     "body-parser": "*",
     "cors": "*",
-    "express": "*",
-    "jsonwebtoken": "*",
-    "mongoose": "^4.10.8",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.1.0",
+    "mongoose": "^4.12.4",
     "passport": "*",
-    "passport-jwt": "*"
+    "passport-jwt": "^3.0.1"
   },
   "author": "Matthew Ramsey",
   "license": "ISC",
   "devDependencies": {
-    "@angular/cli": "^1.4.4"
+    "@angular/cli": "^1.4.9"
   }
 }
