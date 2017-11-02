@@ -23,6 +23,7 @@ import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
 import {StockService} from './services/stock.service';
 import {AuthGuard} from './guards/auth.guard';
+import * as GoogleNewsRss from 'google-news-rss';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
@@ -55,7 +56,7 @@ const appRoutes: Routes = [
     FlashMessagesModule,
     AmChartsModule
   ],
-  providers: [ValidateService, AuthService, StockService, AuthGuard],
+  providers: [ValidateService, AuthService, StockService, AuthGuard, GoogleNewsRss],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

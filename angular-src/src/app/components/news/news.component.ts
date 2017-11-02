@@ -17,11 +17,13 @@ export class NewsComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngAfterViewInit() {
+    this.updateNews();
+  }
+
   updateNews() {
     console.log('getting news');
-    this.stockService.getStockNews(this.symbol).subscribe(data => {
-      this.newsData = data;
-    });
+    //this.stockService.getStockNews(this.symbol).then(resp => this.newsData = resp);
     console.log('newsData');
     console.log(this.newsData);
   }

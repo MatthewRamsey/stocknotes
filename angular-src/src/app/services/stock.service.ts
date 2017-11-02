@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/Map';
 import 'rxjs/add/operator/Finally';
-import { GoogleNewsClient } from 'google-news-rss';
+import * as GoogleNewsRss from 'google-news-rss';
 
 @Injectable()
 export class StockService {
-
-  constructor(private http: Http) { }
+  
+  constructor(private http: Http, private GoogleNewsRss: GoogleNewsRss) {}
 
   getStockChartData(symbol) {
     let headers = new Headers();
@@ -18,16 +18,9 @@ export class StockService {
   }
 
   getStockNews(symbol) {
-    // let data = this.http.get("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fnews.google.com/news?q=" + symbol + "&output=rss")
-    // .map(res => {res.json(); console.log(res.json());});
-    // console.log('service data');
-    // console.log(data);
-    // return data;
-
-    // return this.googleNewsClient
-    // .search(symbol)
-    // .then(resp => console.log(resp));
-    return null;
+    const googleNews = new GoogleNewsRss();
+    return googleNews
+    .search(symbol);
   }
 
   getTwitterResults(symbol) {
