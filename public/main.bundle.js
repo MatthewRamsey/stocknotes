@@ -6191,6 +6191,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+//import * as GoogleNewsRss from 'google-news-rss';
 var appRoutes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_11__components_home_home_component__["a" /* HomeComponent */] },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_10__components_register_register_component__["a" /* RegisterComponent */] },
@@ -6228,6 +6229,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_6_amcharts3_angular2__["a" /* AmChartsModule */]
         ],
         providers: [__WEBPACK_IMPORTED_MODULE_19__services_validate_service__["a" /* ValidateService */], __WEBPACK_IMPORTED_MODULE_20__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_21__services_stock_service__["a" /* StockService */], __WEBPACK_IMPORTED_MODULE_22__guards_auth_guard__["a" /* AuthGuard */]],
+        // providers: [ValidateService, AuthService, StockService, AuthGuard, GoogleNewsRss],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -7230,10 +7232,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+// import * as GoogleNewsRss from 'google-news-rss';
 var StockService = (function () {
     function StockService(http) {
         this.http = http;
     }
+    // constructor(private http: Http, private GoogleNewsRss: GoogleNewsRss) {}
     StockService.prototype.getStockChartData = function (symbol) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
@@ -7242,6 +7246,9 @@ var StockService = (function () {
             .map(function (res) { return res.json(); });
     };
     StockService.prototype.getStockNews = function (symbol) {
+        // const googleNews = new GoogleNewsRss();
+        // return googleNews
+        // .search(symbol);
     };
     StockService.prototype.getTwitterResults = function (symbol) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
