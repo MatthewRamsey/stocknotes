@@ -6301,7 +6301,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-//import * as googleNewsClient from 'google-news-rss';
 var appRoutes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_11__components_home_home_component__["a" /* HomeComponent */] },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_10__components_register_register_component__["a" /* RegisterComponent */] },
@@ -7339,12 +7338,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-//import * as googleNewsClient from 'google-news-rss';
 var StockService = (function () {
     function StockService(http) {
         this.http = http;
     }
-    //constructor(private http: Http, private googleNewsClient: googleNewsClient) {}
     StockService.prototype.getStockChartData = function (symbol) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
@@ -7353,9 +7350,6 @@ var StockService = (function () {
             .map(function (res) { return res.json(); });
     };
     StockService.prototype.getStockNews = function (symbol) {
-        // const googleNews = new googleNewsClient();
-        // return googleNews
-        // .search(symbol);
     };
     StockService.prototype.getTwitterResults = function (symbol) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
