@@ -1,4 +1,4 @@
 # stocknotes
-Angular - Social stock research
+stocknotes - social stock research
 
 https://matthewramsey.github.io/stocknotes/
