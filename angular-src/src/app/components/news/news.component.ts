@@ -22,9 +22,9 @@ export class NewsComponent implements OnInit {
   }
 
   updateNews() {
-    console.log('getting news');
+    //console.log('getting news');
     //this.stockService.getStockNews(this.symbol).then(resp => this.newsData = resp);
-    console.log('newsData');
-    console.log(this.newsData);
+    //console.log('newsData');
+    //console.log(this.newsData);
   }
 }
