@@ -56,7 +56,7 @@ var BehaviorSubject = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return BehaviorSubject;
 }(__WEBPACK_IMPORTED_MODULE_0__Subject__["a" /* Subject */]));
-//# sourceMappingURL=BehaviorSubject.js.map
+//# sourceMappingURL=BehaviorSubject.js.map 
 
 
 /***/ }),
@@ -103,7 +103,7 @@ var InnerSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return InnerSubscriber;
 }(__WEBPACK_IMPORTED_MODULE_0__Subscriber__["a" /* Subscriber */]));
-//# sourceMappingURL=InnerSubscriber.js.map
+//# sourceMappingURL=InnerSubscriber.js.map 
 
 
 /***/ }),
@@ -239,7 +239,7 @@ var Notification = /*@__PURE__*/ (/*@__PURE__*/ function () {
     Notification.undefinedValueNotification = new Notification('N', undefined);
     return Notification;
 }());
-//# sourceMappingURL=Notification.js.map
+//# sourceMappingURL=Notification.js.map 
 
 
 /***/ }),
@@ -413,7 +413,7 @@ var Observable = /*@__PURE__*/ (/*@__PURE__*/ function () {
             operator.call(sink, this.source);
         }
         else {
-            sink.add(this.source || !sink.syncErrorThrowable ? this._subscribe(sink) : this._trySubscribe(sink));
+            sink.add(this.source ? this._subscribe(sink) : this._trySubscribe(sink));
         }
         if (sink.syncErrorThrowable) {
             sink.syncErrorThrowable = false;
@@ -557,7 +557,7 @@ var Observable = /*@__PURE__*/ (/*@__PURE__*/ function () {
     };
     return Observable;
 }());
-//# sourceMappingURL=Observable.js.map
+//# sourceMappingURL=Observable.js.map 
 
 
 /***/ }),
@@ -574,7 +574,7 @@ var empty = {
     error: function (err) { throw err; },
     complete: function () { }
 };
-//# sourceMappingURL=Observer.js.map
+//# sourceMappingURL=Observer.js.map 
 
 
 /***/ }),
@@ -615,7 +615,7 @@ var OuterSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return OuterSubscriber;
 }(__WEBPACK_IMPORTED_MODULE_0__Subscriber__["a" /* Subscriber */]));
-//# sourceMappingURL=OuterSubscriber.js.map
+//# sourceMappingURL=OuterSubscriber.js.map 
 
 
 /***/ }),
@@ -799,7 +799,7 @@ var AnonymousSubject = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return AnonymousSubject;
 }(Subject));
-//# sourceMappingURL=Subject.js.map
+//# sourceMappingURL=Subject.js.map 
 
 
 /***/ }),
@@ -850,7 +850,7 @@ var SubjectSubscription = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return SubjectSubscription;
 }(__WEBPACK_IMPORTED_MODULE_0__Subscription__["a" /* Subscription */]));
-//# sourceMappingURL=SubjectSubscription.js.map
+//# sourceMappingURL=SubjectSubscription.js.map 
 
 
 /***/ }),
@@ -913,7 +913,6 @@ var Subscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
                 }
                 if (typeof destinationOrNext === 'object') {
                     if (destinationOrNext instanceof Subscriber) {
-                        this.syncErrorThrowable = destinationOrNext.syncErrorThrowable;
                         this.destination = destinationOrNext;
                         this.destination.add(this);
                     }
@@ -1129,7 +1128,7 @@ var SafeSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return SafeSubscriber;
 }(Subscriber));
-//# sourceMappingURL=Subscriber.js.map
+//# sourceMappingURL=Subscriber.js.map 
 
 
 /***/ }),
@@ -1336,7 +1335,7 @@ var Subscription = /*@__PURE__*/ (/*@__PURE__*/ function () {
 function flattenUnsubscriptionErrors(errors) {
     return errors.reduce(function (errs, err) { return errs.concat((err instanceof __WEBPACK_IMPORTED_MODULE_5__util_UnsubscriptionError__["a" /* UnsubscriptionError */]) ? err.errors : err); }, []);
 }
-//# sourceMappingURL=Subscription.js.map
+//# sourceMappingURL=Subscription.js.map 
 
 
 /***/ }),
@@ -1352,7 +1351,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 __WEBPACK_IMPORTED_MODULE_0__Observable__["Observable"].defer = __WEBPACK_IMPORTED_MODULE_1__observable_defer__["a" /* defer */];
-//# sourceMappingURL=defer.js.map
+//# sourceMappingURL=defer.js.map 
 
 
 /***/ }),
@@ -1368,7 +1367,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 __WEBPACK_IMPORTED_MODULE_0__Observable__["Observable"].fromPromise = __WEBPACK_IMPORTED_MODULE_1__observable_fromPromise__["a" /* fromPromise */];
-//# sourceMappingURL=fromPromise.js.map
+//# sourceMappingURL=fromPromise.js.map 
 
 
 /***/ }),
@@ -1384,7 +1383,7 @@ __WEBPACK_IMPORTED_MODULE_0__Observable__["Observable"].fromPromise = __WEBPACK_
 
 __WEBPACK_IMPORTED_MODULE_0__Observable__["Observable"].prototype.finally = __WEBPACK_IMPORTED_MODULE_1__operator_finally__["a" /* _finally */];
 __WEBPACK_IMPORTED_MODULE_0__Observable__["Observable"].prototype._finally = __WEBPACK_IMPORTED_MODULE_1__operator_finally__["a" /* _finally */];
-//# sourceMappingURL=finally.js.map
+//# sourceMappingURL=finally.js.map 
 
 
 /***/ }),
@@ -1399,7 +1398,7 @@ __WEBPACK_IMPORTED_MODULE_0__Observable__["Observable"].prototype._finally = __W
 
 
 __WEBPACK_IMPORTED_MODULE_0__Observable__["Observable"].prototype.map = __WEBPACK_IMPORTED_MODULE_1__operator_map__["a" /* map */];
-//# sourceMappingURL=map.js.map
+//# sourceMappingURL=map.js.map 
 
 
 /***/ }),
@@ -1416,7 +1415,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 __WEBPACK_IMPORTED_MODULE_0__Observable__["Observable"].prototype.mergeMap = __WEBPACK_IMPORTED_MODULE_1__operator_mergeMap__["a" /* mergeMap */];
 __WEBPACK_IMPORTED_MODULE_0__Observable__["Observable"].prototype.flatMap = __WEBPACK_IMPORTED_MODULE_1__operator_mergeMap__["a" /* mergeMap */];
-//# sourceMappingURL=mergeMap.js.map
+//# sourceMappingURL=mergeMap.js.map 
 
 
 /***/ }),
@@ -1499,7 +1498,7 @@ var ArrayLikeObservable = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return ArrayLikeObservable;
 }(__WEBPACK_IMPORTED_MODULE_0__Observable__["Observable"]));
-//# sourceMappingURL=ArrayLikeObservable.js.map
+//# sourceMappingURL=ArrayLikeObservable.js.map 
 
 
 /***/ }),
@@ -1635,7 +1634,7 @@ var ArrayObservable = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return ArrayObservable;
 }(__WEBPACK_IMPORTED_MODULE_0__Observable__["Observable"]));
-//# sourceMappingURL=ArrayObservable.js.map
+//# sourceMappingURL=ArrayObservable.js.map 
 
 
 /***/ }),
@@ -1821,7 +1820,7 @@ var RefCountSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return RefCountSubscriber;
 }(__WEBPACK_IMPORTED_MODULE_2__Subscriber__["a" /* Subscriber */]));
-//# sourceMappingURL=ConnectableObservable.js.map
+//# sourceMappingURL=ConnectableObservable.js.map 
 
 
 /***/ }),
@@ -1933,7 +1932,7 @@ var DeferSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return DeferSubscriber;
 }(__WEBPACK_IMPORTED_MODULE_2__OuterSubscriber__["a" /* OuterSubscriber */]));
-//# sourceMappingURL=DeferObservable.js.map
+//# sourceMappingURL=DeferObservable.js.map 
 
 
 /***/ }),
@@ -2025,7 +2024,7 @@ var EmptyObservable = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return EmptyObservable;
 }(__WEBPACK_IMPORTED_MODULE_0__Observable__["Observable"]));
-//# sourceMappingURL=EmptyObservable.js.map
+//# sourceMappingURL=EmptyObservable.js.map 
 
 
 /***/ }),
@@ -2242,7 +2241,7 @@ var ForkJoinSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return ForkJoinSubscriber;
 }(__WEBPACK_IMPORTED_MODULE_4__OuterSubscriber__["a" /* OuterSubscriber */]));
-//# sourceMappingURL=ForkJoinObservable.js.map
+//# sourceMappingURL=ForkJoinObservable.js.map 
 
 
 /***/ }),
@@ -2385,7 +2384,7 @@ var FromObservable = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return FromObservable;
 }(__WEBPACK_IMPORTED_MODULE_8__Observable__["Observable"]));
-//# sourceMappingURL=FromObservable.js.map
+//# sourceMappingURL=FromObservable.js.map 
 
 
 /***/ }),
@@ -2569,7 +2568,7 @@ function sign(value) {
     }
     return valueAsNumber < 0 ? -1 : 1;
 }
-//# sourceMappingURL=IteratorObservable.js.map
+//# sourceMappingURL=IteratorObservable.js.map 
 
 
 /***/ }),
@@ -2702,7 +2701,7 @@ function dispatchError(arg) {
         subscriber.error(err);
     }
 }
-//# sourceMappingURL=PromiseObservable.js.map
+//# sourceMappingURL=PromiseObservable.js.map 
 
 
 /***/ }),
@@ -2771,7 +2770,7 @@ var ScalarObservable = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return ScalarObservable;
 }(__WEBPACK_IMPORTED_MODULE_0__Observable__["Observable"]));
-//# sourceMappingURL=ScalarObservable.js.map
+//# sourceMappingURL=ScalarObservable.js.map 
 
 
 /***/ }),
@@ -2785,7 +2784,7 @@ var ScalarObservable = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
 /** PURE_IMPORTS_START ._DeferObservable PURE_IMPORTS_END */
 
 var defer = __WEBPACK_IMPORTED_MODULE_0__DeferObservable__["a" /* DeferObservable */].create;
-//# sourceMappingURL=defer.js.map
+//# sourceMappingURL=defer.js.map 
 
 
 /***/ }),
@@ -2799,7 +2798,7 @@ var defer = __WEBPACK_IMPORTED_MODULE_0__DeferObservable__["a" /* DeferObservabl
 /** PURE_IMPORTS_START ._ForkJoinObservable PURE_IMPORTS_END */
 
 var forkJoin = __WEBPACK_IMPORTED_MODULE_0__ForkJoinObservable__["a" /* ForkJoinObservable */].create;
-//# sourceMappingURL=forkJoin.js.map
+//# sourceMappingURL=forkJoin.js.map 
 
 
 /***/ }),
@@ -2813,7 +2812,7 @@ var forkJoin = __WEBPACK_IMPORTED_MODULE_0__ForkJoinObservable__["a" /* ForkJoin
 /** PURE_IMPORTS_START ._FromObservable PURE_IMPORTS_END */
 
 var from = __WEBPACK_IMPORTED_MODULE_0__FromObservable__["a" /* FromObservable */].create;
-//# sourceMappingURL=from.js.map
+//# sourceMappingURL=from.js.map 
 
 
 /***/ }),
@@ -2827,7 +2826,7 @@ var from = __WEBPACK_IMPORTED_MODULE_0__FromObservable__["a" /* FromObservable *
 /** PURE_IMPORTS_START ._PromiseObservable PURE_IMPORTS_END */
 
 var fromPromise = __WEBPACK_IMPORTED_MODULE_0__PromiseObservable__["a" /* PromiseObservable */].create;
-//# sourceMappingURL=fromPromise.js.map
+//# sourceMappingURL=fromPromise.js.map 
 
 
 /***/ }),
@@ -2836,100 +2835,12 @@ var fromPromise = __WEBPACK_IMPORTED_MODULE_0__PromiseObservable__["a" /* Promis
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = merge;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Observable__ = __webpack_require__("../node_modules/rxjs/_esm5/Observable.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ArrayObservable__ = __webpack_require__("../node_modules/rxjs/_esm5/observable/ArrayObservable.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_isScheduler__ = __webpack_require__("../node_modules/rxjs/_esm5/util/isScheduler.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__operators_mergeAll__ = __webpack_require__("../node_modules/rxjs/_esm5/operators/mergeAll.js");
-/** PURE_IMPORTS_START .._Observable,._ArrayObservable,.._util_isScheduler,.._operators_mergeAll PURE_IMPORTS_END */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return merge; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__operator_merge__ = __webpack_require__("../node_modules/rxjs/_esm5/operator/merge.js");
+/** PURE_IMPORTS_START .._operator_merge PURE_IMPORTS_END */
 
-
-
-
-/* tslint:enable:max-line-length */
-/**
- * Creates an output Observable which concurrently emits all values from every
- * given input Observable.
- *
- * <span class="informal">Flattens multiple Observables together by blending
- * their values into one Observable.</span>
- *
- * <img src="./img/merge.png" width="100%">
- *
- * `merge` subscribes to each given input Observable (as arguments), and simply
- * forwards (without doing any transformation) all the values from all the input
- * Observables to the output Observable. The output Observable only completes
- * once all input Observables have completed. Any error delivered by an input
- * Observable will be immediately emitted on the output Observable.
- *
- * @example <caption>Merge together two Observables: 1s interval and clicks</caption>
- * var clicks = Rx.Observable.fromEvent(document, 'click');
- * var timer = Rx.Observable.interval(1000);
- * var clicksOrTimer = Rx.Observable.merge(clicks, timer);
- * clicksOrTimer.subscribe(x => console.log(x));
- *
- * // Results in the following:
- * // timer will emit ascending values, one every second(1000ms) to console
- * // clicks logs MouseEvents to console everytime the "document" is clicked
- * // Since the two streams are merged you see these happening
- * // as they occur.
- *
- * @example <caption>Merge together 3 Observables, but only 2 run concurrently</caption>
- * var timer1 = Rx.Observable.interval(1000).take(10);
- * var timer2 = Rx.Observable.interval(2000).take(6);
- * var timer3 = Rx.Observable.interval(500).take(10);
- * var concurrent = 2; // the argument
- * var merged = Rx.Observable.merge(timer1, timer2, timer3, concurrent);
- * merged.subscribe(x => console.log(x));
- *
- * // Results in the following:
- * // - First timer1 and timer2 will run concurrently
- * // - timer1 will emit a value every 1000ms for 10 iterations
- * // - timer2 will emit a value every 2000ms for 6 iterations
- * // - after timer1 hits it's max iteration, timer2 will
- * //   continue, and timer3 will start to run concurrently with timer2
- * // - when timer2 hits it's max iteration it terminates, and
- * //   timer3 will continue to emit a value every 500ms until it is complete
- *
- * @see {@link mergeAll}
- * @see {@link mergeMap}
- * @see {@link mergeMapTo}
- * @see {@link mergeScan}
- *
- * @param {...ObservableInput} observables Input Observables to merge together.
- * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of input
- * Observables being subscribed to concurrently.
- * @param {Scheduler} [scheduler=null] The IScheduler to use for managing
- * concurrency of input Observables.
- * @return {Observable} an Observable that emits items that are the result of
- * every input Observable.
- * @static true
- * @name merge
- * @owner Observable
- */
-function merge() {
-    var observables = [];
-    for (var _i = 0; _i < arguments.length; _i++) {
-        observables[_i - 0] = arguments[_i];
-    }
-    var concurrent = Number.POSITIVE_INFINITY;
-    var scheduler = null;
-    var last = observables[observables.length - 1];
-    if (Object(__WEBPACK_IMPORTED_MODULE_2__util_isScheduler__["a" /* isScheduler */])(last)) {
-        scheduler = observables.pop();
-        if (observables.length > 1 && typeof observables[observables.length - 1] === 'number') {
-            concurrent = observables.pop();
-        }
-    }
-    else if (typeof last === 'number') {
-        concurrent = observables.pop();
-    }
-    if (scheduler === null && observables.length === 1 && observables[0] instanceof __WEBPACK_IMPORTED_MODULE_0__Observable__["Observable"]) {
-        return observables[0];
-    }
-    return Object(__WEBPACK_IMPORTED_MODULE_3__operators_mergeAll__["a" /* mergeAll */])(concurrent)(new __WEBPACK_IMPORTED_MODULE_1__ArrayObservable__["a" /* ArrayObservable */](observables, scheduler));
-}
-//# sourceMappingURL=merge.js.map
+var merge = __WEBPACK_IMPORTED_MODULE_0__operator_merge__["a" /* mergeStatic */];
+//# sourceMappingURL=merge.js.map 
 
 
 /***/ }),
@@ -2943,7 +2854,7 @@ function merge() {
 /** PURE_IMPORTS_START ._ArrayObservable PURE_IMPORTS_END */
 
 var of = __WEBPACK_IMPORTED_MODULE_0__ArrayObservable__["a" /* ArrayObservable */].of;
-//# sourceMappingURL=of.js.map
+//# sourceMappingURL=of.js.map 
 
 
 /***/ }),
@@ -3018,7 +2929,7 @@ var of = __WEBPACK_IMPORTED_MODULE_0__ArrayObservable__["a" /* ArrayObservable *
 function _catch(selector) {
     return Object(__WEBPACK_IMPORTED_MODULE_0__operators_catchError__["a" /* catchError */])(selector)(this);
 }
-//# sourceMappingURL=catch.js.map
+//# sourceMappingURL=catch.js.map 
 
 
 /***/ }),
@@ -3083,7 +2994,7 @@ function _catch(selector) {
 function concatAll() {
     return Object(__WEBPACK_IMPORTED_MODULE_0__operators_concatAll__["a" /* concatAll */])()(this);
 }
-//# sourceMappingURL=concatAll.js.map
+//# sourceMappingURL=concatAll.js.map 
 
 
 /***/ }),
@@ -3159,7 +3070,7 @@ function concatAll() {
 function concatMap(project, resultSelector) {
     return Object(__WEBPACK_IMPORTED_MODULE_0__operators_concatMap__["a" /* concatMap */])(project, resultSelector)(this);
 }
-//# sourceMappingURL=concatMap.js.map
+//# sourceMappingURL=concatMap.js.map 
 
 
 /***/ }),
@@ -3189,7 +3100,7 @@ function concatMap(project, resultSelector) {
 function every(predicate, thisArg) {
     return Object(__WEBPACK_IMPORTED_MODULE_0__operators_every__["a" /* every */])(predicate, thisArg)(this);
 }
-//# sourceMappingURL=every.js.map
+//# sourceMappingURL=every.js.map 
 
 
 /***/ }),
@@ -3245,7 +3156,7 @@ function every(predicate, thisArg) {
 function filter(predicate, thisArg) {
     return Object(__WEBPACK_IMPORTED_MODULE_0__operators_filter__["a" /* filter */])(predicate, thisArg)(this);
 }
-//# sourceMappingURL=filter.js.map
+//# sourceMappingURL=filter.js.map 
 
 
 /***/ }),
@@ -3269,7 +3180,7 @@ function filter(predicate, thisArg) {
 function _finally(callback) {
     return Object(__WEBPACK_IMPORTED_MODULE_0__operators_finalize__["a" /* finalize */])(callback)(this);
 }
-//# sourceMappingURL=finally.js.map
+//# sourceMappingURL=finally.js.map 
 
 
 /***/ }),
@@ -3334,7 +3245,7 @@ function _finally(callback) {
 function first(predicate, resultSelector, defaultValue) {
     return Object(__WEBPACK_IMPORTED_MODULE_0__operators_first__["a" /* first */])(predicate, resultSelector, defaultValue)(this);
 }
-//# sourceMappingURL=first.js.map
+//# sourceMappingURL=first.js.map 
 
 
 /***/ }),
@@ -3368,7 +3279,7 @@ function first(predicate, resultSelector, defaultValue) {
 function last(predicate, resultSelector, defaultValue) {
     return Object(__WEBPACK_IMPORTED_MODULE_0__operators_last__["a" /* last */])(predicate, resultSelector, defaultValue)(this);
 }
-//# sourceMappingURL=last.js.map
+//# sourceMappingURL=last.js.map 
 
 
 /***/ }),
@@ -3417,7 +3328,76 @@ function last(predicate, resultSelector, defaultValue) {
 function map(project, thisArg) {
     return Object(__WEBPACK_IMPORTED_MODULE_0__operators_map__["a" /* map */])(project, thisArg)(this);
 }
-//# sourceMappingURL=map.js.map
+//# sourceMappingURL=map.js.map 
+
+
+/***/ }),
+
+/***/ "../node_modules/rxjs/_esm5/operator/merge.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export merge */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__operators_merge__ = __webpack_require__("../node_modules/rxjs/_esm5/operators/merge.js");
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__operators_merge__["b"]; });
+/** PURE_IMPORTS_START .._operators_merge PURE_IMPORTS_END */
+
+
+/* tslint:enable:max-line-length */
+/**
+ * Creates an output Observable which concurrently emits all values from every
+ * given input Observable.
+ *
+ * <span class="informal">Flattens multiple Observables together by blending
+ * their values into one Observable.</span>
+ *
+ * <img src="./img/merge.png" width="100%">
+ *
+ * `merge` subscribes to each given input Observable (either the source or an
+ * Observable given as argument), and simply forwards (without doing any
+ * transformation) all the values from all the input Observables to the output
+ * Observable. The output Observable only completes once all input Observables
+ * have completed. Any error delivered by an input Observable will be immediately
+ * emitted on the output Observable.
+ *
+ * @example <caption>Merge together two Observables: 1s interval and clicks</caption>
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var timer = Rx.Observable.interval(1000);
+ * var clicksOrTimer = clicks.merge(timer);
+ * clicksOrTimer.subscribe(x => console.log(x));
+ *
+ * @example <caption>Merge together 3 Observables, but only 2 run concurrently</caption>
+ * var timer1 = Rx.Observable.interval(1000).take(10);
+ * var timer2 = Rx.Observable.interval(2000).take(6);
+ * var timer3 = Rx.Observable.interval(500).take(10);
+ * var concurrent = 2; // the argument
+ * var merged = timer1.merge(timer2, timer3, concurrent);
+ * merged.subscribe(x => console.log(x));
+ *
+ * @see {@link mergeAll}
+ * @see {@link mergeMap}
+ * @see {@link mergeMapTo}
+ * @see {@link mergeScan}
+ *
+ * @param {ObservableInput} other An input Observable to merge with the source
+ * Observable. More than one input Observables may be given as argument.
+ * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of input
+ * Observables being subscribed to concurrently.
+ * @param {Scheduler} [scheduler=null] The IScheduler to use for managing
+ * concurrency of input Observables.
+ * @return {Observable} An Observable that emits items that are the result of
+ * every input Observable.
+ * @method merge
+ * @owner Observable
+ */
+function merge() {
+    var observables = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        observables[_i - 0] = arguments[_i];
+    }
+    return __WEBPACK_IMPORTED_MODULE_0__operators_merge__["a" /* merge */].apply(void 0, observables)(this);
+}
+//# sourceMappingURL=merge.js.map 
 
 
 /***/ }),
@@ -3480,7 +3460,7 @@ function mergeAll(concurrent) {
     }
     return Object(__WEBPACK_IMPORTED_MODULE_0__operators_mergeAll__["a" /* mergeAll */])(concurrent)(this);
 }
-//# sourceMappingURL=mergeAll.js.map
+//# sourceMappingURL=mergeAll.js.map 
 
 
 /***/ }),
@@ -3558,7 +3538,7 @@ function mergeMap(project, resultSelector, concurrent) {
     }
     return Object(__WEBPACK_IMPORTED_MODULE_0__operators_mergeMap__["a" /* mergeMap */])(project, resultSelector, concurrent)(this);
 }
-//# sourceMappingURL=mergeMap.js.map
+//# sourceMappingURL=mergeMap.js.map 
 
 
 /***/ }),
@@ -3627,7 +3607,7 @@ function reduce(accumulator, seed) {
     }
     return Object(__WEBPACK_IMPORTED_MODULE_0__operators_reduce__["a" /* reduce */])(accumulator)(this);
 }
-//# sourceMappingURL=reduce.js.map
+//# sourceMappingURL=reduce.js.map 
 
 
 /***/ }),
@@ -3660,7 +3640,7 @@ function share() {
     return Object(__WEBPACK_IMPORTED_MODULE_0__operators_share__["a" /* share */])()(this);
 }
 ;
-//# sourceMappingURL=share.js.map
+//# sourceMappingURL=share.js.map 
 
 
 /***/ }),
@@ -3788,7 +3768,7 @@ var CatchSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return CatchSubscriber;
 }(__WEBPACK_IMPORTED_MODULE_0__OuterSubscriber__["a" /* OuterSubscriber */]));
-//# sourceMappingURL=catchError.js.map
+//# sourceMappingURL=catchError.js.map 
 
 
 /***/ }),
@@ -3852,7 +3832,7 @@ var CatchSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
 function concatAll() {
     return Object(__WEBPACK_IMPORTED_MODULE_0__mergeAll__["a" /* mergeAll */])(1);
 }
-//# sourceMappingURL=concatAll.js.map
+//# sourceMappingURL=concatAll.js.map 
 
 
 /***/ }),
@@ -3928,7 +3908,7 @@ function concatAll() {
 function concatMap(project, resultSelector) {
     return Object(__WEBPACK_IMPORTED_MODULE_0__mergeMap__["a" /* mergeMap */])(project, resultSelector, 1);
 }
-//# sourceMappingURL=concatMap.js.map
+//# sourceMappingURL=concatMap.js.map 
 
 
 /***/ }),
@@ -4018,7 +3998,7 @@ var DefaultIfEmptySubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return DefaultIfEmptySubscriber;
 }(__WEBPACK_IMPORTED_MODULE_0__Subscriber__["a" /* Subscriber */]));
-//# sourceMappingURL=defaultIfEmpty.js.map
+//# sourceMappingURL=defaultIfEmpty.js.map 
 
 
 /***/ }),
@@ -4103,7 +4083,7 @@ var EverySubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return EverySubscriber;
 }(__WEBPACK_IMPORTED_MODULE_0__Subscriber__["a" /* Subscriber */]));
-//# sourceMappingURL=every.js.map
+//# sourceMappingURL=every.js.map 
 
 
 /***/ }),
@@ -4208,7 +4188,7 @@ var FilterSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return FilterSubscriber;
 }(__WEBPACK_IMPORTED_MODULE_0__Subscriber__["a" /* Subscriber */]));
-//# sourceMappingURL=filter.js.map
+//# sourceMappingURL=filter.js.map 
 
 
 /***/ }),
@@ -4263,7 +4243,7 @@ var FinallySubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     }
     return FinallySubscriber;
 }(__WEBPACK_IMPORTED_MODULE_0__Subscriber__["a" /* Subscriber */]));
-//# sourceMappingURL=finalize.js.map
+//# sourceMappingURL=finalize.js.map 
 
 
 /***/ }),
@@ -4427,7 +4407,7 @@ var FirstSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return FirstSubscriber;
 }(__WEBPACK_IMPORTED_MODULE_0__Subscriber__["a" /* Subscriber */]));
-//# sourceMappingURL=first.js.map
+//# sourceMappingURL=first.js.map 
 
 
 /***/ }),
@@ -4558,7 +4538,7 @@ var LastSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return LastSubscriber;
 }(__WEBPACK_IMPORTED_MODULE_0__Subscriber__["a" /* Subscriber */]));
-//# sourceMappingURL=last.js.map
+//# sourceMappingURL=last.js.map 
 
 
 /***/ }),
@@ -4658,7 +4638,118 @@ var MapSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return MapSubscriber;
 }(__WEBPACK_IMPORTED_MODULE_0__Subscriber__["a" /* Subscriber */]));
-//# sourceMappingURL=map.js.map
+//# sourceMappingURL=map.js.map 
+
+
+/***/ }),
+
+/***/ "../node_modules/rxjs/_esm5/operators/merge.js":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = merge;
+/* harmony export (immutable) */ __webpack_exports__["b"] = mergeStatic;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Observable__ = __webpack_require__("../node_modules/rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__observable_ArrayObservable__ = __webpack_require__("../node_modules/rxjs/_esm5/observable/ArrayObservable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mergeAll__ = __webpack_require__("../node_modules/rxjs/_esm5/operators/mergeAll.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__util_isScheduler__ = __webpack_require__("../node_modules/rxjs/_esm5/util/isScheduler.js");
+/** PURE_IMPORTS_START .._Observable,.._observable_ArrayObservable,._mergeAll,.._util_isScheduler PURE_IMPORTS_END */
+
+
+
+
+/* tslint:enable:max-line-length */
+function merge() {
+    var observables = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        observables[_i - 0] = arguments[_i];
+    }
+    return function (source) { return source.lift.call(mergeStatic.apply(void 0, [source].concat(observables))); };
+}
+/* tslint:enable:max-line-length */
+/**
+ * Creates an output Observable which concurrently emits all values from every
+ * given input Observable.
+ *
+ * <span class="informal">Flattens multiple Observables together by blending
+ * their values into one Observable.</span>
+ *
+ * <img src="./img/merge.png" width="100%">
+ *
+ * `merge` subscribes to each given input Observable (as arguments), and simply
+ * forwards (without doing any transformation) all the values from all the input
+ * Observables to the output Observable. The output Observable only completes
+ * once all input Observables have completed. Any error delivered by an input
+ * Observable will be immediately emitted on the output Observable.
+ *
+ * @example <caption>Merge together two Observables: 1s interval and clicks</caption>
+ * var clicks = Rx.Observable.fromEvent(document, 'click');
+ * var timer = Rx.Observable.interval(1000);
+ * var clicksOrTimer = Rx.Observable.merge(clicks, timer);
+ * clicksOrTimer.subscribe(x => console.log(x));
+ *
+ * // Results in the following:
+ * // timer will emit ascending values, one every second(1000ms) to console
+ * // clicks logs MouseEvents to console everytime the "document" is clicked
+ * // Since the two streams are merged you see these happening
+ * // as they occur.
+ *
+ * @example <caption>Merge together 3 Observables, but only 2 run concurrently</caption>
+ * var timer1 = Rx.Observable.interval(1000).take(10);
+ * var timer2 = Rx.Observable.interval(2000).take(6);
+ * var timer3 = Rx.Observable.interval(500).take(10);
+ * var concurrent = 2; // the argument
+ * var merged = Rx.Observable.merge(timer1, timer2, timer3, concurrent);
+ * merged.subscribe(x => console.log(x));
+ *
+ * // Results in the following:
+ * // - First timer1 and timer2 will run concurrently
+ * // - timer1 will emit a value every 1000ms for 10 iterations
+ * // - timer2 will emit a value every 2000ms for 6 iterations
+ * // - after timer1 hits it's max iteration, timer2 will
+ * //   continue, and timer3 will start to run concurrently with timer2
+ * // - when timer2 hits it's max iteration it terminates, and
+ * //   timer3 will continue to emit a value every 500ms until it is complete
+ *
+ * @see {@link mergeAll}
+ * @see {@link mergeMap}
+ * @see {@link mergeMapTo}
+ * @see {@link mergeScan}
+ *
+ * @param {...ObservableInput} observables Input Observables to merge together.
+ * @param {number} [concurrent=Number.POSITIVE_INFINITY] Maximum number of input
+ * Observables being subscribed to concurrently.
+ * @param {Scheduler} [scheduler=null] The IScheduler to use for managing
+ * concurrency of input Observables.
+ * @return {Observable} an Observable that emits items that are the result of
+ * every input Observable.
+ * @static true
+ * @name merge
+ * @owner Observable
+ */
+function mergeStatic() {
+    var observables = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        observables[_i - 0] = arguments[_i];
+    }
+    var concurrent = Number.POSITIVE_INFINITY;
+    var scheduler = null;
+    var last = observables[observables.length - 1];
+    if (Object(__WEBPACK_IMPORTED_MODULE_3__util_isScheduler__["a" /* isScheduler */])(last)) {
+        scheduler = observables.pop();
+        if (observables.length > 1 && typeof observables[observables.length - 1] === 'number') {
+            concurrent = observables.pop();
+        }
+    }
+    else if (typeof last === 'number') {
+        concurrent = observables.pop();
+    }
+    if (scheduler === null && observables.length === 1 && observables[0] instanceof __WEBPACK_IMPORTED_MODULE_0__Observable__["Observable"]) {
+        return observables[0];
+    }
+    return Object(__WEBPACK_IMPORTED_MODULE_2__mergeAll__["a" /* mergeAll */])(concurrent)(new __WEBPACK_IMPORTED_MODULE_1__observable_ArrayObservable__["a" /* ArrayObservable */](observables, scheduler));
+}
+//# sourceMappingURL=merge.js.map 
 
 
 /***/ }),
@@ -4723,7 +4814,7 @@ function mergeAll(concurrent) {
     }
     return Object(__WEBPACK_IMPORTED_MODULE_0__mergeMap__["a" /* mergeMap */])(__WEBPACK_IMPORTED_MODULE_1__util_identity__["a" /* identity */], null, concurrent);
 }
-//# sourceMappingURL=mergeAll.js.map
+//# sourceMappingURL=mergeAll.js.map 
 
 
 /***/ }),
@@ -4914,7 +5005,7 @@ var MergeMapSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return MergeMapSubscriber;
 }(__WEBPACK_IMPORTED_MODULE_1__OuterSubscriber__["a" /* OuterSubscriber */]));
-//# sourceMappingURL=mergeMap.js.map
+//# sourceMappingURL=mergeMap.js.map 
 
 
 /***/ }),
@@ -4982,7 +5073,7 @@ var MulticastOperator = /*@__PURE__*/ (/*@__PURE__*/ function () {
     };
     return MulticastOperator;
 }());
-//# sourceMappingURL=multicast.js.map
+//# sourceMappingURL=multicast.js.map 
 
 
 /***/ }),
@@ -5115,7 +5206,7 @@ var ObserveOnMessage = /*@__PURE__*/ (/*@__PURE__*/ function () {
     }
     return ObserveOnMessage;
 }());
-//# sourceMappingURL=observeOn.js.map
+//# sourceMappingURL=observeOn.js.map 
 
 
 /***/ }),
@@ -5196,7 +5287,7 @@ function reduce(accumulator, seed) {
         }), Object(__WEBPACK_IMPORTED_MODULE_1__takeLast__["a" /* takeLast */])(1))(source);
     };
 }
-//# sourceMappingURL=reduce.js.map
+//# sourceMappingURL=reduce.js.map 
 
 
 /***/ }),
@@ -5292,7 +5383,7 @@ var RefCountSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return RefCountSubscriber;
 }(__WEBPACK_IMPORTED_MODULE_0__Subscriber__["a" /* Subscriber */]));
-//# sourceMappingURL=refCount.js.map
+//# sourceMappingURL=refCount.js.map 
 
 
 /***/ }),
@@ -5426,7 +5517,7 @@ var ScanSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return ScanSubscriber;
 }(__WEBPACK_IMPORTED_MODULE_0__Subscriber__["a" /* Subscriber */]));
-//# sourceMappingURL=scan.js.map
+//# sourceMappingURL=scan.js.map 
 
 
 /***/ }),
@@ -5462,7 +5553,7 @@ function share() {
     return function (source) { return Object(__WEBPACK_IMPORTED_MODULE_1__refCount__["a" /* refCount */])()(Object(__WEBPACK_IMPORTED_MODULE_0__multicast__["a" /* multicast */])(shareSubjectFactory)(source)); };
 }
 ;
-//# sourceMappingURL=share.js.map
+//# sourceMappingURL=share.js.map 
 
 
 /***/ }),
@@ -5584,7 +5675,7 @@ var TakeLastSubscriber = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     };
     return TakeLastSubscriber;
 }(__WEBPACK_IMPORTED_MODULE_0__Subscriber__["a" /* Subscriber */]));
-//# sourceMappingURL=takeLast.js.map
+//# sourceMappingURL=takeLast.js.map 
 
 
 /***/ }),
@@ -5633,7 +5724,7 @@ var iterator = /*@__PURE__*/ symbolIteratorPonyfill(__WEBPACK_IMPORTED_MODULE_0_
  * @deprecated use iterator instead
  */
 var $$iterator = iterator;
-//# sourceMappingURL=iterator.js.map
+//# sourceMappingURL=iterator.js.map 
 
 
 /***/ }),
@@ -5670,7 +5761,7 @@ var observable = /*@__PURE__*/ getSymbolObservable(__WEBPACK_IMPORTED_MODULE_0__
  * @deprecated use observable instead
  */
 var $$observable = observable;
-//# sourceMappingURL=observable.js.map
+//# sourceMappingURL=observable.js.map 
 
 
 /***/ }),
@@ -5691,7 +5782,7 @@ var rxSubscriber = (typeof Symbol === 'function' && typeof Symbol.for === 'funct
  * @deprecated use rxSubscriber instead
  */
 var $$rxSubscriber = rxSubscriber;
-//# sourceMappingURL=rxSubscriber.js.map
+//# sourceMappingURL=rxSubscriber.js.map 
 
 
 /***/ }),
@@ -5729,7 +5820,7 @@ var ArgumentOutOfRangeError = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     }
     return ArgumentOutOfRangeError;
 }(Error));
-//# sourceMappingURL=ArgumentOutOfRangeError.js.map
+//# sourceMappingURL=ArgumentOutOfRangeError.js.map 
 
 
 /***/ }),
@@ -5767,7 +5858,7 @@ var EmptyError = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     }
     return EmptyError;
 }(Error));
-//# sourceMappingURL=EmptyError.js.map
+//# sourceMappingURL=EmptyError.js.map 
 
 
 /***/ }),
@@ -5804,7 +5895,7 @@ var ObjectUnsubscribedError = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     }
     return ObjectUnsubscribedError;
 }(Error));
-//# sourceMappingURL=ObjectUnsubscribedError.js.map
+//# sourceMappingURL=ObjectUnsubscribedError.js.map 
 
 
 /***/ }),
@@ -5839,7 +5930,7 @@ var UnsubscriptionError = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
     }
     return UnsubscriptionError;
 }(Error));
-//# sourceMappingURL=UnsubscriptionError.js.map
+//# sourceMappingURL=UnsubscriptionError.js.map 
 
 
 /***/ }),
@@ -5852,7 +5943,7 @@ var UnsubscriptionError = /*@__PURE__*/ (/*@__PURE__*/ function (_super) {
 // typeof any so that it we don't have to cast when comparing a result to the error object
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 var errorObject = { e: {} };
-//# sourceMappingURL=errorObject.js.map
+//# sourceMappingURL=errorObject.js.map 
 
 
 /***/ }),
@@ -5866,7 +5957,7 @@ var errorObject = { e: {} };
 function identity(x) {
     return x;
 }
-//# sourceMappingURL=identity.js.map
+//# sourceMappingURL=identity.js.map 
 
 
 /***/ }),
@@ -5878,7 +5969,7 @@ function identity(x) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return isArray; });
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 var isArray = Array.isArray || (function (x) { return x && typeof x.length === 'number'; });
-//# sourceMappingURL=isArray.js.map
+//# sourceMappingURL=isArray.js.map 
 
 
 /***/ }),
@@ -5890,7 +5981,7 @@ var isArray = Array.isArray || (function (x) { return x && typeof x.length === '
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return isArrayLike; });
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 var isArrayLike = (function (x) { return x && typeof x.length === 'number'; });
-//# sourceMappingURL=isArrayLike.js.map
+//# sourceMappingURL=isArrayLike.js.map 
 
 
 /***/ }),
@@ -5904,7 +5995,7 @@ var isArrayLike = (function (x) { return x && typeof x.length === 'number'; });
 function isFunction(x) {
     return typeof x === 'function';
 }
-//# sourceMappingURL=isFunction.js.map
+//# sourceMappingURL=isFunction.js.map 
 
 
 /***/ }),
@@ -5918,7 +6009,7 @@ function isFunction(x) {
 function isObject(x) {
     return x != null && typeof x === 'object';
 }
-//# sourceMappingURL=isObject.js.map
+//# sourceMappingURL=isObject.js.map 
 
 
 /***/ }),
@@ -5932,7 +6023,7 @@ function isObject(x) {
 function isPromise(value) {
     return value && typeof value.subscribe !== 'function' && typeof value.then === 'function';
 }
-//# sourceMappingURL=isPromise.js.map
+//# sourceMappingURL=isPromise.js.map 
 
 
 /***/ }),
@@ -5946,7 +6037,7 @@ function isPromise(value) {
 function isScheduler(value) {
     return value && typeof value.schedule === 'function';
 }
-//# sourceMappingURL=isScheduler.js.map
+//# sourceMappingURL=isScheduler.js.map 
 
 
 /***/ }),
@@ -5959,7 +6050,7 @@ function isScheduler(value) {
 /* tslint:disable:no-empty */
 /** PURE_IMPORTS_START  PURE_IMPORTS_END */
 function noop() { }
-//# sourceMappingURL=noop.js.map
+//# sourceMappingURL=noop.js.map 
 
 
 /***/ }),
@@ -5993,7 +6084,7 @@ function pipeFromArray(fns) {
         return fns.reduce(function (prev, fn) { return fn(prev); }, input);
     };
 }
-//# sourceMappingURL=pipe.js.map
+//# sourceMappingURL=pipe.js.map 
 
 
 /***/ }),
@@ -6021,7 +6112,7 @@ var _root = __window || __global || __self;
     }
 })();
 
-//# sourceMappingURL=root.js.map
+//# sourceMappingURL=root.js.map 
 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__("./node_modules/webpack/buildin/global.js")))
 
@@ -6117,7 +6208,7 @@ function subscribeToResult(outerSubscriber, result, outerValue, outerIndex) {
     }
     return null;
 }
-//# sourceMappingURL=subscribeToResult.js.map
+//# sourceMappingURL=subscribeToResult.js.map 
 
 
 /***/ }),
@@ -6148,7 +6239,7 @@ function toSubscriber(nextOrObserver, error, complete) {
     }
     return new __WEBPACK_IMPORTED_MODULE_0__Subscriber__["a" /* Subscriber */](nextOrObserver, error, complete);
 }
-//# sourceMappingURL=toSubscriber.js.map
+//# sourceMappingURL=toSubscriber.js.map 
 
 
 /***/ }),
@@ -6176,7 +6267,7 @@ function tryCatch(fn) {
     return tryCatcher;
 }
 ;
-//# sourceMappingURL=tryCatch.js.map
+//# sourceMappingURL=tryCatch.js.map 
 
 
 /***/ }),
@@ -6586,7 +6677,7 @@ module.exports = ""
 /***/ "./src/app/components/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form class=\"form text-center\" role=\"search\">\n  <div class=\"form-inline\">\n    <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"symbol\" [(ngModel)]=\"symbol\">\n    <button type=\"submit\" (click)=\"c.updateNewChart(); n.updateNews();\" class=\"btn btn-default\"><i class=\"glyphicon glyphicon-search\"></i></button>\n  </div>\n</form>\n<app-chart #c [symbol]=\"symbol\"></app-chart>\n<div class=\"container-fluid\">\n  <div class=\"row\">\n    <app-privatenotes></app-privatenotes>\n    <!-- <app-publicnotes></app-publicnotes> -->\n    <app-news #n [symbol]=\"symbol\"></app-news>\n    <app-twitter></app-twitter>\n  </div>\n</div>\n"
+module.exports = "<form class=\"form\" role=\"search\">\n  <div class=\"form-inline search\">\n    <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"symbol\" [(ngModel)]=\"symbol\">\n    <button type=\"submit\" (click)=\"c.updateNewChart(); n.updateNews();\" class=\"btn btn-default\"><i class=\"glyphicon glyphicon-search\"></i></button>\n  </div>\n</form>\n<app-chart #c [symbol]=\"symbol\"></app-chart>\n<div class=\"container-fluid\">\n  <div class=\"row notes\">\n    <app-privatenotes></app-privatenotes>\n    <!-- <app-publicnotes></app-publicnotes> -->\n    <app-news #n [symbol]=\"symbol\"></app-news>\n    <app-twitter></app-twitter>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -6716,7 +6807,7 @@ module.exports = ""
 /***/ "./src/app/components/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" [routerLinkActive]=\"['active']\" [routerLink]=\"['/']\">Stocknotes - social stock research</a>\n    </div>\n\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\"><a [routerLink]=\"['/dashboard']\">Dashboard</a></li>\n        <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\"><a [routerLink]=\"['/profile']\">Profile</a></li>\n        <li *ngIf=\"!authService.loggedIn()\"[routerLinkActive]=\"['active']\"><a [routerLink]=\"['/login']\">Login</a></li>\n        <li *ngIf=\"!authService.loggedIn()\"[routerLinkActive]=\"['active']\"><a [routerLink]=\"['/register']\">Register</a></li>\n        <li *ngIf=\"authService.loggedIn()\"><a (click)=\"onLogoutClick()\" href=\"#\">Logout</a></li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" [routerLinkActive]=\"['active']\" [routerLink]=\"['/']\"><h1>Stocknotes - social stock research</h1></a>\n    </div>\n\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\"><a [routerLink]=\"['/dashboard']\">Dashboard</a></li>\n        <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\"><a [routerLink]=\"['/profile']\">Profile</a></li>\n        <li *ngIf=\"!authService.loggedIn()\"[routerLinkActive]=\"['active']\"><a [routerLink]=\"['/login']\">Login</a></li>\n        <li *ngIf=\"!authService.loggedIn()\"[routerLinkActive]=\"['active']\"><a [routerLink]=\"['/register']\">Register</a></li>\n        <li *ngIf=\"authService.loggedIn()\"><a (click)=\"onLogoutClick()\" href=\"#\">Logout</a></li>\n      </ul>\n    </div>\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -6984,7 +7075,7 @@ module.exports = ""
 /***/ "./src/app/components/publicnotes/publicnotes.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-4\">\n    <div class=\"private-component\">\n      <ul class=\"nav nav-pills\">\n        <li class=\"active\">\n          <a href=\"#\">\n            <h4>Public Notes</h4>\n          </a>\n        </li>\n        <li>\n          <a href=\"#\">\n            <h4>Private Notes</h4>\n          </a>\n        </li>\n      </ul>\n      <div>test</div>\n      <ul>\n        <li *ngFor=\"let note of data\">\n          <div>{{note.title}}<span>{{note.date}}</span></div>\n          <div>{{note.details}}</div>\n        </li>\n      </ul>\n    </div>\n  </div>\n  "
+module.exports = "<div class=\"col-md-4 box\">\n    <div class=\"private-component\">\n      <ul class=\"nav nav-pills\">\n        <li class=\"active\">\n          <a href=\"#\">\n            <h4>Public Notes</h4>\n          </a>\n        </li>\n        <li>\n          <a href=\"#\">\n            <h4>Private Notes</h4>\n          </a>\n        </li>\n      </ul>\n      <div>test</div>\n      <ul>\n        <li *ngFor=\"let note of data\">\n          <div>{{note.title}}<span>{{note.date}}</span></div>\n          <div>{{note.details}}</div>\n        </li>\n      </ul>\n    </div>\n  </div>\n  "
 
 /***/ }),
 
