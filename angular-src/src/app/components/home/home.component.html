@@ -1,12 +1,12 @@
-<form class="form text-center" role="search">
-  <div class="form-inline">
+<form class="form" role="search">
+  <div class="form-inline search">
     <input type="text" class="form-control" placeholder="Search" name="symbol" [(ngModel)]="symbol">
     <button type="submit" (click)="c.updateNewChart(); n.updateNews();" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
   </div>
 </form>
 <app-chart #c [symbol]="symbol"></app-chart>
 <div class="container-fluid">
-  <div class="row">
+  <div class="row notes">
     <app-privatenotes></app-privatenotes>
     <!-- <app-publicnotes></app-publicnotes> -->
     <app-news #n [symbol]="symbol"></app-news>

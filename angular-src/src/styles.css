@@ -56,3 +56,11 @@ ul {
 .detail {
   font-size: 11px;
 }
+
+.search {
+ padding-left: 40%; 
+}
+
+.notes {
+  padding-left: 25%
+}
